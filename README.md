@@ -34,3 +34,11 @@ warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 
 说明安装成功，否则安装失败。
 ### 安装完成后请清理不必要的压缩文件.
+
+
+## 补充说明（如果上述安装失败，可以看看是不是下面的原因）
+1. 除去247是`home`，246、248、249都是`home1`，注意不要在错误的gpu上忘记修改路径
+2. sh文件运行不了可以逐行运行然后按照报错补充
+3. 针对 `make && make install` 时出现 `missing aclocal-1.14 -I m4 make: *** [aclocal.m4] 错误 127` 先执行 `autoreconf -ivf` 加载缺失文件后，再执行 `make`就可以了
+4. 针对`warning: Clock skew detected. Your build may be incomplete`，可以不用管，在网上搜到的解决方案是`find . -type f | xargs -n 5 touch`但是没有效果依然报warning
+5. 虽然不知道为什么，不到200M的gcc-6.5.0.tar.gz的解压过程的确很长，耐心等待，严重怀疑前几次安装失败就是sh文件中这个东西解压很快但是有损失
